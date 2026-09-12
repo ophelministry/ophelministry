@@ -67,6 +67,29 @@ a {
   font-weight: bold;
   line-height: 1.1;
 }
+/* =========================================
+   LOGO RESIZING AND SHAPING
+   ========================================= */
+
+.logo-img {
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+  border: 7px solid #1f5d91;
+  outline: 3px solid #e7b400;
+  object-fit: cover;
+  display: block;
+}
+
+/* Keeps it small and clean on mobile phones */
+@media (max-width: 850px) {
+  .logo-img {
+    width: 115px;
+    height: 115px;
+    border-width: 5px;
+  }
+}
+
 
 .church-info {
   text-align: center;
