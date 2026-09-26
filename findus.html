@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Us - Ophel Ministry</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #fff; background: #121212; }
+        header { background: #1a1a1a; padding: 15px; border-bottom: 3px solid #ff9800; text-align: center; }
+        nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; }
+        .container { max-width: 950px; margin: 40px auto; padding: 0 20px; box-sizing: border-box; }
+        
+        .location-toggle-box { display: flex; justify-content: center; gap: 15px; margin-bottom: 35px; flex-wrap: wrap; }
+        .toggle-btn { background: #222; border: 2px solid #ff9800; color: #fff; padding: 14px 28px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 15px; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px; }
+        .toggle-btn:hover, .toggle-btn.active { background: #ff9800; color: #121212; box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4); }
+
+        .location-card { background: #1e1e1e; border-radius: 12px; padding: 30px; box-shadow: 0 6px 20px rgba(0,0,0,0.4); border-top: 4px solid #ff9800; display: none; }
+        .location-card.active-card { display: block; animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 25px; }
+        .address-details h3 { margin-top: 0; color: #ff9800; font-size: 22px; text-transform: uppercase; }
+        .tamil-address { color: #aaa; font-style: italic; margin-bottom: 15px; display: block; }
+        
+        .map-wrapper { width: 100%; height: 350px; border-radius: 8px; overflow: hidden; border: 2px solid #333; }
+        .map-wrapper iframe { width: 100%; height: 100%; border: none; }
+
+        .directions-btn { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #e65c00, #ff9800); color: #121212; padding: 12px 25px; border-radius: 6px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 13px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.2s; }
+        .directions-btn:hover { transform: translateY(-2px); }
+
+        @media (max-width: 768px) { .info-grid { grid-template-columns: 1fr; } }
+        footer { text-align: center; padding: 20px; background: #1a1a1a; margin-top: 60px; color: #777; font-size: 13px; }
+    </style>
+    <link rel="stylesheet" href="https://cloudflare.com">
+</head>
+<body>
+
+    <header>
+        <h1 style="margin: 0; font-size: 24px;">Ophel Ministry</h1>
+        <nav style="margin-top: 10px;">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+           <!-- <a href="live.html">Live Room</a>-->
+            <a href="prayer.html">Prayer Sessions</a>
+            <a href="findus.html" style="color: #ff9800;">Find Us</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <center>
+            <h2 style="color: #fff; font-size: 28px; margin-bottom: 5px;">Our Ministry Locations</h2>
+            <p style="color: #aaa; margin-bottom: 30px;">Click either choice below to instantly view map layouts and turn-by-turn phone routing navigation.</p>
+        </center>
+
+        <!-- Toggle Controls Navigation Tabs Grid Matrix -->
+        <div class="location-toggle-box">
+            <button class="toggle-btn active" onclick="showLocation('hq')"><i class="fa-solid fa-church"></i> Headquarters (Ophel garden)</button>
+            <button class="toggle-btn" onclick="showLocation('village')"><i class="fa-solid fa-tent"></i> Village Branch (Ophel Prayer Tent)</button>
+        </div>
+
+        <!-- ================= CARD 1: HEADQUARTERS (OPHEL GARDEN) ================= -->
+        <div id="hq-card" class="location-card active-card">
+            <div class="info-grid">
+                <div class="address-details">
+                    <h3>Headquarters: Ophel garden</h3>
+                    <span class="tamil-address">தலைமையகம்: ஓபேல் திருச்சபை</span>
+                    <p><strong><i class="fa-solid fa-location-dot" style="color:#ff9800;"></i> Address:</strong> Nanguneri Talk, 113, South Illayamuthur road, Moondradaippu Post, Illayamuthur Rd, Tamil Nadu 627152.</p>
+                    <p><strong><i class="fa-solid fa-map" style="color:#ff9800;"></i> Plus Code:</strong> JM2J+WF Packianathapuram, Tamil Nadu</p>
+                    <br>
+                    <a href="https://google.com" target="_blank" class="directions-btn">
+                        <i class="fa-solid fa-map-location-dot"></i> Direction to  Headquarter Map
+                    </a>
+                </div>
+                <div class="map-wrapper">
+                    <!-- Embedded Precise Iframe Map pointing to Ophel Garden Coordinates -->
+                    <iframe src="https://google.com"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= CARD 2: VILLAGE BRANCH (OPHEL PRAYER TENT) ================= -->
+        <div id="village-card" class="location-card">
+            <div class="info-grid">
+                <div class="address-details">
+                    <h3>Village Branch: Ophel Prayer Tent</h3>
+                    <span class="tamil-address">கிராம கிளை: ஓபேல் ஜெபக் கூடாரம்</span>
+                    <p><strong><i class="fa-solid fa-location-dot" style="color:#ff9800;"></i> Address:</strong> V9PX+MH5, Maruthadiyur, Tamil Nadu 627808.</p>
+                    <p><strong><i class="fa-solid fa-circle-info" style="color:#ff9800;"></i> Regional Details:</strong> Located near CSI Transfiguration Church and St. Alphonse Ligoriyar Alayam.</p>
+                    <br>
+                    <a href="https://google.com" target="_blank" class="directions-btn">
+                        <i class="fa-solid fa-map-location-dot"></i> Open Branch Map
+                    </a>
+                </div>
+                <div class="map-wrapper">
+                    <!-- Embedded Precise Iframe Map pointing to Ophel Prayer Tent Coordinates -->
+                    <iframe src="https://google.com"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Interactivity Toggle Script Framework -->
+    <script>
+        function showLocation(type) {
+            document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.location-card').forEach(card => card.classList.remove('active-card'));
+            
+            if(type === 'hq') {
+                document.getElementById('hq-card').classList.add('active-card');
+                window.event.currentTarget.classList.add('active');
+            } else {
+                document.getElementById('village-card').classList.add('active-card');
+                window.event.currentTarget.classList.add('active');
+            }
+        }
+    </script>
+
+    <footer>
+        <p>&copy; Ophel Ministry. Since 2010. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
