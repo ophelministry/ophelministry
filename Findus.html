@@ -8,28 +8,35 @@
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #fff; background: #121212; }
         header { background: #1a1a1a; padding: 15px; border-bottom: 3px solid #ff9800; text-align: center; }
         nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; }
-        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; box-sizing: border-box; }
+        .container { max-width: 750px; margin: 40px auto; padding: 0 20px; box-sizing: border-box; }
         
         .location-toggle-box { display: flex; justify-content: center; gap: 15px; margin-bottom: 35px; flex-wrap: wrap; }
         .toggle-btn { background: #222; border: 2px solid #ff9800; color: #fff; padding: 14px 28px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 15px; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px; }
         .toggle-btn:hover, .toggle-btn.active { background: #ff9800; color: #121212; box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4); }
 
-        .location-card { background: #1e1e1e; border-radius: 12px; padding: 35px; box-shadow: 0 6px 20px rgba(0,0,0,0.4); border-top: 4px solid #ff9800; display: none; text-align: center; }
+        .location-card { background: #1e1e1e; border-radius: 12px; padding: 25px; box-shadow: 0 6px 20px rgba(0,0,0,0.4); border-top: 4px solid #ff9800; display: none; text-align: center; }
         .location-card.active-card { display: block; animation: fadeIn 0.4s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .location-title { color: #ff9800; font-size: 26px; text-transform: uppercase; margin-top: 0; margin-bottom: 5px; font-weight: 800; }
-        .tamil-address { color: #aaa; font-style: italic; margin-bottom: 25px; display: block; font-size: 16px; }
+        .location-title { color: #ff9800; font-size: 24px; text-transform: uppercase; margin-top: 0; margin-bottom: 5px; font-weight: 800; }
+        .tamil-address { color: #aaa; font-style: italic; margin-bottom: 25px; display: block; font-size: 15px; }
         
-        .detail-item { background: #252525; padding: 15px; border-radius: 8px; margin-bottom: 15px; text-align: left; border: 1px solid #333; }
+        /* Premium Photo Frame Box */
+        .photo-container { background: #2a2a2a; border-radius: 8px; overflow: hidden; border: 1px solid #333; margin-bottom: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        .photo-container img { width: 100%; height: 260px; object-fit: cover; display: block; background: #222; border: 0; }
+        .photo-caption { padding: 12px; font-size: 13px; color: #ccc; text-align: center; font-weight: 500; background: #1a1a1a; }
+
+        .detail-item { background: #252525; padding: 15px; border-radius: 8px; margin-bottom: 15px; text-align: left; border: 1px solid #333; font-size: 14.5px; }
         .detail-item strong { color: #ff9800; }
 
-        /* Main App Launcher Action Button */
-        .directions-btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; background: linear-gradient(135deg, #e65c00, #ff9800); color: #121212; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 15px; box-shadow: 0 6px 20px rgba(255, 152, 0, 0.3); transition: all 0.2s; margin-top: 20px; width: 100%; box-sizing: border-box; letter-spacing: 0.5px; }
-        .directions-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(255, 152, 0, 0.5); }
+        /* Premium Google Maps Integration Action Button */
+        .gmaps-btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; background: linear-gradient(135deg, #ea4335, #ff9800); color: #fff; padding: 16px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 14px; box-shadow: 0 4px 15px rgba(234, 67, 53, 0.3); transition: all 0.3s ease; margin-top: 15px; width: 100%; box-sizing: border-box; letter-spacing: 0.5px; }
+        .gmaps-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(234, 67, 53, 0.5); }
+        .gmaps-btn i { font-size: 1.3em; }
 
         footer { text-align: center; padding: 20px; background: #1a1a1a; margin-top: 60px; color: #777; font-size: 13px; }
     </style>
+    <!-- Load Font Awesome for the Google Maps Pin Vector Graphic Icon -->
     <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 <body>
@@ -48,53 +55,60 @@
 
     <div class="container">
         <center>
-            <h2 style="color: #fff; font-size: 28px; margin-bottom: 5px;">Our Ministry Locations</h2>
-            <p style="color: #aaa; margin-bottom: 35px;">Select a campus below to open navigation routing instantly in your Google Maps app.</p>
+            <h2 style="color: #fff; font-size: 26px; margin-bottom: 5px;">Our Locations</h2>
+            <p style="color: #aaa; margin-bottom: 35px;">Select a church location to view photos and open direct routing pins inside Google Maps.</p>
         </center>
 
-        <!-- Selection Tabs -->
+        <!-- Selection Toggle Menu Tabs Grid Matrix -->
         <div class="location-toggle-box">
-            <button class="toggle-btn active" onclick="showLocation('hq')"><i class="fa-solid fa-church"></i> Headquarters (Ophel garden)</button>
-            <button class="toggle-btn" onclick="showLocation('village')"><i class="fa-solid fa-tent"></i> Village Branch (Ophel Prayer Tent)</button>
+            <button class="toggle-btn active" onclick="showLocation('hq')"><i class="fa-solid fa-church"></i> Main Church (Ophel garden)</button>
+            <button class="toggle-btn" onclick="showLocation('village')"><i class="fa-solid fa-tent"></i> Prayer Tent (Village Branch)</button>
         </div>
 
-        <!-- ================= CARD 1: HEADQUARTERS ================= -->
+        <!-- ================= CARD 1: MAIN CHURCH (OPHEL GARDEN) ================= -->
         <div id="hq-card" class="location-card active-card">
-            <h3 class="location-title">Headquarters: Ophel garden</h3>
+            <h3 class="location-title">Main Church: Ophel garden</h3>
             <span class="tamil-address">தலைமையகம்: ஓபெல் தோட்டம்</span>
             
+            <!-- Campus View Photograph Container Frame -->
+            <div class="photo-container">
+                <img src="images/ophel-garden.jpg" alt="Ophel garden Headquarter Church">
+                <div class="photo-caption">Main Church Campus View — Ophel garden (Moondradaippu)</div>
+            </div>
+
             <div class="detail-item">
                 <p style="margin:0;"><strong><i class="fa-solid fa-location-dot"></i> Address:</strong> Nanguneri Taluk, 113, South Illayamuthur road, Moondradaippu Post, Tamil Nadu 627152.</p>
             </div>
-            <div class="detail-item">
-                <p style="margin:0;"><strong><i class="fa-solid fa-map"></i> Plus Code Location:</strong> JM2J+WF Packianathapuram, Tamil Nadu</p>
-            </div>
 
-            <!-- Launcher Link -->
-            <a href="https://google.com" target="_blank" class="directions-btn">
-                <i class="fa-solid fa-map-location-dot" style="font-size: 1.2em;"></i> Open Live Route in Google Maps App
+            <!-- Direct Map Entry Launcher Button -->
+            <a href="https://google.com" target="_blank" class="gmaps-btn">
+                <i class="fa-solid fa-map-location-dot"></i> Open Ophel garden in Google Maps
             </a>
         </div>
 
-        <!-- ================= CARD 2: VILLAGE BRANCH ================= -->
+        <!-- ================= CARD 2: PRAYER TENT (VILLAGE BRANCH) ================= -->
         <div id="village-card" class="location-card">
-            <h3 class="location-title">Village Branch: Ophel Prayer Tent</h3>
+            <h3 class="location-title">Branch: Ophel Prayer Tent</h3>
             <span class="tamil-address">கிராம கிளை: ஓபெல் ஜெபக் கூடாரம்</span>
             
+            <!-- Tent Outpost Photograph Container Frame -->
+            <div class="photo-container">
+                <img src="images/prayer-tent.jpg" alt="Ophel Prayer Tent Branch">
+                <div class="photo-caption">Fellowship Structure View — Ophel Prayer Tent (Maruthadiyur)</div>
+            </div>
+
             <div class="detail-item">
                 <p style="margin:0;"><strong><i class="fa-solid fa-location-dot"></i> Address:</strong> V9PX+MH5, Maruthadiyur, Tamil Nadu 627808.</p>
             </div>
-            <div class="detail-item">
-                <p style="margin:0;"><strong><i class="fa-solid fa-circle-info"></i> Landmarks:</strong> Situated closely adjacent to the CSI Transfiguration Church compound area.</p>
-            </div>
 
-            <!-- Launcher Link -->
-            <a href="https://google.com" target="_blank" class="directions-btn">
-                <i class="fa-solid fa-map-location-dot" style="font-size: 1.2em;"></i> Open Live Route in Google Maps App
+            <!-- Direct Map Entry Launcher Button -->
+            <a href="https://google.com" target="_blank" class="gmaps-btn">
+                <i class="fa-solid fa-map-location-dot"></i> Open Ophel Prayer Tent in Google Maps
             </a>
         </div>
     </div>
 
+    <!-- Interface Animation Script -->
     <script>
         function showLocation(type) {
             document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
