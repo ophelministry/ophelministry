@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worship Songs & Lyrics - Ophel Ministry</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #fff; background: #121212; }
+        header { background: #1a1a1a; padding: 15px; border-bottom: 3px solid #e91e63; text-align: center; }
+        nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; }
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; box-sizing: border-box; }
+        
+        .song-card { background: #1e1e1e; border-radius: 12px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border-left: 5px solid #e91e63; }
+        .song-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 15px; }
+        
+        /* Play Icon and Title Flex Container */
+        .title-wrapper { display: flex; align-items: center; gap: 12px; }
+        .play-indicator-symbol { color: #e91e63; font-size: 24px; animation: gentlePulse 2s infinite; }
+        @keyframes gentlePulse { 0% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.1); opacity: 1; } 100% { transform: scale(1); opacity: 0.8; } }
+        
+        .song-title { font-size: 20px; font-weight: bold; color: #fff; margin: 0; }
+        .song-tamil { font-size: 16px; color: #aaa; font-style: italic; display: block; margin-top: 3px; }
+        .track-number { background: #e91e63; color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: bold; text-transform: uppercase; }
+        
+        /* Native Audio Player Control */
+        audio { width: 100%; margin: 15px 0; border-radius: 8px; }
+        
+        /* Responsive Actions Layout Matrix */
+        .action-grid { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 15px; }
+        .action-btn { display: inline-flex; align-items: center; gap: 8px; color: #fff; padding: 11px 22px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 13px; text-transform: uppercase; transition: all 0.2s; border: 1px solid transparent; cursor: pointer; }
+        
+        /* Color Palettes for Unique System Actions */
+        .btn-audio-dl { background: linear-gradient(135deg, #00c6ff, #0072ff); } /* Premium Blue Gradient for MP3 Save */
+        .btn-pdf { background: #D14836; } /* Crimson Red for PDF Sheets */
+        .btn-text { background: #2a2a2a; border-color: #444; } /* Sleek Dark for Toggle Text Drawer */
+        
+        .action-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); opacity: 0.95; }
+        
+        /* Hidden Sliding Lyrics Panel */
+        .lyrics-drawer { display: none; background: #252525; border-radius: 8px; padding: 20px; margin-top: 15px; border: 1px solid #333; border-top: 3px solid #e91e63; text-align: center; }
+        .lyrics-content { white-space: pre-line; font-size: 15px; color: #e0e0e0; font-style: italic; line-height: 1.8; }
+        
+        footer { text-align: center; padding: 20px; background: #1a1a1a; margin-top: 60px; color: #777; font-size: 13px; }
+    </style>
+    <!-- Load Font Awesome Icon Sets -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+</head>
+<body>
+
+    <header>
+        <h1 style="margin: 0; font-size: 24px;">Ophel Ministry</h1>
+        <nav style="margin-top: 10px;">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="live.html">Live Room</a>
+            <a href="prayer.html">Prayer Sessions</a>
+            <a href="songs.html" style="color: #e91e63;">Songs</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <center>
+            <h2 style="color: #fff; font-size: 28px; margin-bottom: 5px;">Praise & Worship Hub</h2>
+            <p style="color: #aaa; margin-bottom: 35px;">Listen online, save music audio directly to your phone, download lyric sheets, or read texts live.</p>
+        </center>
+
+        <!-- ================= TRACK CARD 01 ================= -->
+        <div class="song-card">
+            <div class="song-header">
+                <div class="title-wrapper">
+                    <!-- 🎬 Audio Start to Play Visual Pulsing Symbol -->
+                    <i class="fa-solid fa-circle-play play-indicator-symbol"></i>
+                    <div>
+                        <h3 class="song-title">Song 1: Lord of My Healing</h3>
+                        <span class="song-tamil">என் குணமாக்கும் இயேசுவே</span>
+                    </div>
+                </div>
+                <span class="track-number">Track 01</span>
+            </div>
+
+            <!-- Inbuilt Streaming Media Element -->
+            <audio controls src="audio/song1.mp3"></audio>
+
+            <div class="action-grid">
+                <!-- 📥 New Dedicated MP3 Audio File Downloader Link Option -->
+                <a href="audio/song1.mp3" download="Ophel_Ministry_Track_01.mp3" class="action-btn btn-audio-dl">
+                    <i class="fa-solid fa-cloud-arrow-down"></i> Download MP3 Audio
+                </a>
+
+                <!-- Downloadable Lyrics PDF Outline -->
+                <a href="pdfs/song1-lyrics.pdf" download class="action-btn btn-pdf">
+                    <i class="fa-solid fa-file-pdf"></i> Lyrics PDF
+                </a>
+                
+                <!-- On-Screen Text Drawer Toggle -->
+                <button class="action-btn btn-text" onclick="toggleLyrics('lyrics-1')">
+                    <i class="fa-solid fa-file-lines"></i> Read Text
+                </button>
+            </div>
+
+            <div id="lyrics-1" class="lyrics-drawer">
+                <div class="lyrics-content">
+                    <strong>[Verse 1]</strong>
+                    என் குணமாக்கும் இயேசுவே நீர் நல்லவர்
+                    உம் சிலுவை தழும்புகளால் சுகமானேன்
+                    
+                    <strong>[Chorus]</strong>
+                    ஓபெல் என் புகலிடமே, நீர் என் துணையே
+                    நம்பிக்கை தந்து என்னை காப்பவரே!
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= TRACK CARD 02 ================= -->
+        <div class="song-card" style="border-left-color: #9c27b0;">
+            <div class="song-header">
+                <div class="title-wrapper">
+                    <i class="fa-solid fa-circle-play play-indicator-symbol" style="color: #9c27b0;"></i>
+                    <div>
+                        <h3 class="song-title">Song 2: Presence of the Holy Spirit</h3>
+                        <span class="song-tamil">தூய ஆவியானவரே பிரசன்னமாகுமே</span>
+                    </div>
+                </div>
+                <span class="track-number" style="background:#9c27b0;">Track 02</span>
+            </div>
+
+            <audio controls src="audio/song2.mp3"></audio>
+
+            <div class="action-grid">
+                <!-- 📥 New Dedicated MP3 Audio File Downloader Link Option -->
+                <a href="audio/song2.mp3" download="Ophel_Ministry_Track_02.mp3" class="action-btn btn-audio-dl" style="background: linear-gradient(135deg, #a83232, #9c27b0);">
+                    <i class="fa-solid fa-cloud-arrow-down"></i> Download MP3 Audio
+                </a>
+
+                <a href="pdfs/song2-lyrics.pdf" download class="action-btn btn-pdf" style="background:#9c27b0;">
+                    <i class="fa-solid fa-file-pdf"></i> Lyrics PDF
+                </a>
+                
+                <button class="action-btn btn-text" onclick="toggleLyrics('lyrics-2')">
+                    <i class="fa-solid fa-file-lines"></i> Read Text
+                </button>
+            </div>
+
+            <div id="lyrics-2" class="lyrics-drawer" style="border-top-color:#9c27b0;">
+                <div class="lyrics-content">
+                    <strong>[Verse 1]</strong>
+                    உம் பிரசன்னத்தில் பேரின்பமுண்டு
+                    உம் மகிமையினால் என்னை நிரப்புமே
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script Handling Sliding Drawer Logic animations -->
+    <script>
+        function toggleLyrics(id) {
+            var drawer = document.getElementById(id);
+            if (drawer.style.display === "block") {
+                drawer.style.display = "none";
+            } else {
+                drawer.style.display = "block";
+                drawer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+    </script>
+
+    <footer>
+        <p>&copy; Ophel Ministry. Since 2010. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
